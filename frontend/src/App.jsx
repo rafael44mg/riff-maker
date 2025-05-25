@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import './App.css';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 function App() {
   const [isRecording, setIsRecording] = useState(false);
   const [recordings, setRecordings] = useState([]);
@@ -29,7 +31,7 @@ function App() {
 
   const fetchRiffs = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/riffs');
+      const response = await axios.get(`${API_URL}/riffs`);
       setRecordings(response.data);
     } catch (error) {
       console.error('Erro ao buscar riffs:', error);
@@ -63,7 +65,7 @@ function App() {
         formData.append('date', now.toISOString());
 
         try {
-          await axios.post('http://localhost:8000/riffs', formData);
+          await axios.post(`${API_URL}/riffs`, formData);
           fetchRiffs();
           console.log('Áudio enviado com sucesso!');
           setRiffName('');
@@ -94,14 +96,14 @@ function App() {
         mediaRecorderRef.current.stop();
       } else {
         console.warn('MediaRecorder não está gravando no momento.');
-        setIsRecording(false); // só pra garantir que o estado atualize
+        setIsRecording(false);
       }
     }
   };
 
   const deleteRiff = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/riffs/${id}`);
+      await axios.delete(`${API_URL}/riffs/${id}`);
       setRecordings((prev) => prev.filter((r) => r.id !== id));
     } catch (err) {
       console.error("Erro ao deletar riff:", err);
@@ -155,10 +157,10 @@ function App() {
               <div className="riff-card" key={riff.id}>
                 <p><strong>{riff.name}</strong></p>
                 <p>{new Date(riff.date).toLocaleString()}</p>
-                <audio controls src={`http://localhost:8000${riff.audio_url}`}></audio>
+                <audio controls src={`${API_URL}${riff.audio_url}`}></audio>
                 <div className="actions">
                   <button>⭐</button>
-                  <a href={`http://localhost:8000${riff.audio_url}`} download>
+                  <a href={`${API_URL}${riff.audio_url}`} download>
                     <button>⬇️</button>
                   </a>
                   <button onClick={() => deleteRiff(riff.id)}>🗑️</button>
@@ -173,6 +175,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
