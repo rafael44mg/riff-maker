@@ -110,6 +110,21 @@ function App() {
     }
   };
 
+  const compareRiff = async (riff) => {
+  try {
+    const response = await axios.get(`https://riff-maker.onrender.com${riff.audio_url}`, { responseType: 'blob' });
+    const formData = new FormData();
+    formData.append('file', response.data, 'riff.webm');
+
+    const compareResponse = await axios.post('https://riff-maker.onrender.com/compare_riff/', formData);
+    console.log('Riffs similares:', compareResponse.data.similar_riffs);
+    alert('Riffs similares:\n' + compareResponse.data.similar_riffs.map(r => `${r.name} (distância: ${r.distance.toFixed(2)})`).join('\n'));
+  } catch (error) {
+    console.error('Erro na comparação:', error);
+    alert('Erro ao comparar riffs.');
+  }
+};
+
   return (
     <div className="app">
       <header>
@@ -163,6 +178,7 @@ function App() {
                   <a href={`${API_URL}${riff.audio_url}`} download>
                     <button>⬇️</button>
                   </a>
+                  <button onClick={() => compareRiff(riff)}>🔍 Similaridade</button>
                   <button onClick={() => deleteRiff(riff.id)}>🗑️</button>
                 </div>
               </div>

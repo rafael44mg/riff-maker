@@ -33,4 +33,8 @@ npm create vite@latest frontend -- --template react
 cd frontend
 npm install
 
+# rodar a aplicação backend
 source venv/Scripts/activate
+uvicorn main:app --reload
+# rodar a aplicação frontend
+npm run dev
