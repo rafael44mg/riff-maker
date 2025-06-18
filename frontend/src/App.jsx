@@ -111,19 +111,25 @@ function App() {
   };
 
   const compareRiff = async (riff) => {
-  try {
-    const response = await axios.get(`https://riff-maker.onrender.com${riff.audio_url}`, { responseType: 'blob' });
-    const formData = new FormData();
-    formData.append('file', response.data, 'riff.webm');
+    try {
+      const response = await axios.get(`${API_URL}${riff.audio_url}`, { responseType: 'blob' });
+      const audioBlob = new Blob([response.data], { type: 'audio/webm' });
+      const formData = new FormData();
+      formData.append('file', audioBlob, 'riff.webm');
 
-    const compareResponse = await axios.post('https://riff-maker.onrender.com/compare_riff/', formData);
-    console.log('Riffs similares:', compareResponse.data.similar_riffs);
-    alert('Riffs similares:\n' + compareResponse.data.similar_riffs.map(r => `${r.name} (distância: ${r.distance.toFixed(2)})`).join('\n'));
-  } catch (error) {
-    console.error('Erro na comparação:', error);
-    alert('Erro ao comparar riffs.');
-  }
-};
+      const compareResponse = await axios.post(`${API_URL}/compare_riff/`, formData);
+      console.log('Riffs similares:', compareResponse.data.similar_riffs);
+
+      alert('Riffs similares:\n' +
+        compareResponse.data.similar_riffs
+          .map(r => `${r.name} (distância: ${r.distance.toFixed(2)})`)
+          .join('\n')
+      );
+    } catch (error) {
+      console.error('Erro na comparação:', error);
+      alert('Erro ao comparar riffs.');
+    }
+  };
 
   return (
     <div className="app">
@@ -191,6 +197,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
