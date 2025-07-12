@@ -1,9 +1,17 @@
 [
     {
-        "id": "5e68d506-e79a-482d-a5a5-81832fd8e191",
-        "name": "punk",
-        "date": "2025-05-22T04:18:53.433Z",
-        "audio_url": "/riffs/5e68d506-e79a-482d-a5a5-81832fd8e191_punk.webm"
+        "id": "4e4c286d-e293-44af-b85e-a9da578ac9be",
+        "name": "punkriff3",
+        "date": "2025-06-21T06:03:53.057Z",
+        "audio_url": "/audio_files/4e4c286d-e293-44af-b85e-a9da578ac9be_punkriff3.webm",
+        "duration": 17.1
+    },
+    {
+        "id": "5cf02b27-2c1e-4817-aa6f-414ee2dccebb",
+        "name": "balada nova",
+        "date": "2025-06-21T01:43:56.052Z",
+        "audio_url": "/riffs/5cf02b27-2c1e-4817-aa6f-414ee2dccebb_balada_nova.webm",
+        "duration": 0.0
     },
     {
         "id": "fc0e13fc-310b-4ba4-8218-59ac56fea273",
@@ -12,34 +20,10 @@
         "audio_url": "/riffs/fc0e13fc-310b-4ba4-8218-59ac56fea273_rock.webm"
     },
     {
-        "id": "7e49e0f6-fe0b-4ca6-9f0a-3c89202b3a6b",
-        "name": "rock",
-        "date": "2025-05-22T03:46:19.064Z",
-        "audio_url": "/riffs/7e49e0f6-fe0b-4ca6-9f0a-3c89202b3a6b_rock.webm"
-    },
-    {
         "id": "7894a8e3-882e-4652-8787-a8be44bb8091",
         "name": "metal2",
         "date": "2025-05-22T03:44:56.215Z",
         "audio_url": "/riffs/7894a8e3-882e-4652-8787-a8be44bb8091_metal2.webm"
-    },
-    {
-        "id": "8184d009-dccc-4073-aec3-092d4ca8f841",
-        "name": "metal",
-        "date": "2025-05-22T03:43:02.292Z",
-        "audio_url": "/riffs/8184d009-dccc-4073-aec3-092d4ca8f841_metal.webm"
-    },
-    {
-        "id": "4bb664d6-f955-4c3e-bc67-0a6400a2cfea",
-        "name": "teste3",
-        "date": "2025-05-16T23:42:11.672Z",
-        "audio_url": "/riffs/4bb664d6-f955-4c3e-bc67-0a6400a2cfea_teste3.webm"
-    },
-    {
-        "id": "529b993a-1850-4b88-9caf-33f70c45b140",
-        "name": "teste2",
-        "date": "2025-05-16T04:34:12.523Z",
-        "audio_url": "/riffs/529b993a-1850-4b88-9caf-33f70c45b140_teste2.webm"
     },
     {
         "id": "7456bb5f-7820-4d38-a438-b3c912c15555",

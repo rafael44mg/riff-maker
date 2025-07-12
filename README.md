@@ -34,7 +34,9 @@ cd frontend
 npm install
 
 # rodar a aplicação backend
+cd backend
 source venv/Scripts/activate
 uvicorn main:app --reload
 # rodar a aplicação frontend
+cd frontend
 npm run dev
